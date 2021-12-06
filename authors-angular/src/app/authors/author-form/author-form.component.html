@@ -1,0 +1,17 @@
+<div class="w-50 mx-auto">
+
+  <form (ngSubmit)="createAuthor()" >
+    <p>Author's Info</p>
+    <div>
+      
+      {{ author | json}}
+    </div>
+    <div class="row mb-3">
+      <label for="name">Name:</label>
+      <input type="text" name="name" [(ngModel)]="author.name" required>
+    </div>
+  
+    <button type="submit" class="btn mb-3 me-3 btn-outline-primary">Submit</button>
+    <a routerLink="list" class="btn mb-3 me-3 btn-outline-warning">Cancel</a>
+  </form>
+</div>

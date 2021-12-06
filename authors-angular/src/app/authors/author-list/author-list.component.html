@@ -1,0 +1,20 @@
+<h3>Authors's List</h3>
+<div class="container-lg">
+
+  <ul class="w-50 mx-auto" *ngIf= " authors$ | async as authors">
+    <ng-template [ngIf]=" authors.authors.length > 0" [ngIfElse]="noAuthors">
+      <div  *ngFor="let author of authors.authors;">
+      <div class="author">
+        {{author.name}} - 
+        <a routerLink="/edit/{{author._id}}" class="btn">Edit</a>
+        <button class="btn" id="{{author._id}}" (click)="deleteAuthor($event)">Delete</button>
+      </div> 
+    </div>
+  </ng-template>
+  
+  <ng-template #noAuthors>
+    <div>There are no authors to show...</div>
+  </ng-template>
+  
+  </ul>
+</div>

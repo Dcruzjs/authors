@@ -1,0 +1,19 @@
+<div class="container-lg">
+  <div class="w-50 border mx-auto">
+    <form (ngSubmit)="updateAuthor()">
+      <p>Author's Info</p>
+      <p *ngIf="errorMsg.length > 0">{{errorMsg}} <a routerLink='/new'> Let's add it</a></p>
+      <div>
+    
+        {{ author | json}}
+      </div>
+      <div class="row mb-3">
+        <label for="name">Name:</label>
+        <input type="text" name="name" [(ngModel)]="author.name" required>
+      </div>
+    
+      <button class="btn btn-outline-warning" type="submit">Update</button>
+    </form>
+      <button id="{{author._id}}" (click)="deleteAuthor($event)" class="btn mt-3 btn-outline-danger mt-3">Delete</button>
+    </div>
+</div>
